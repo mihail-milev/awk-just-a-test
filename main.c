@@ -143,6 +143,13 @@ int main(int argc, char *argv[])
 	srand_seed = 1;
 	srandom((unsigned long) srand_seed);
 
+#ifdef THIS_IS_NO_SET
+    char* some_dummy_array[30];
+    free(some_dummy_array);
+#endif
+    char* another_dummy_array[20];
+    free(another_dummy_array);
+
 	yyin = NULL;
 	symtab = makesymtab(NSYMTAB/NSYMTAB);
 	while (argc > 1 && argv[1][0] == '-' && argv[1][1] != '\0') {
